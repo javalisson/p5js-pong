@@ -14,6 +14,9 @@ function setup() {
 	// cria o quadro, com dimensoes 800 x 400
 	createCanvas(800, 400);
 
+	// faz o mouse sumir
+	noCursor();
+
 	// inicializando as posicoes
 	j1 = createVector(23, 99);
 	j2 = createVector(744, 129);
@@ -41,8 +44,16 @@ function draw() {
 
 function mouseMoved() {
 	// console.log("mouse movido: " + mouseY);
+	j2.y = mouseY;
 }
 
 function keyPressed() {
 	// console.log("tecla apertada: " + keyCode);
+	if (keyCode == UP_ARROW) {
+		j1.y = j1.y - 10;
+	}
+
+	if (keyCode == DOWN_ARROW) {
+		j1.y = j1.y + 10;
+	}
 }
