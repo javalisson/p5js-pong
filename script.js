@@ -4,10 +4,18 @@
  * 
  */
 
+// bastao dos jogadores 1 e 2 e a bola
+var j1, j2, b; 
+
 // chamada no inicio do programa
 function setup() {
 	// cria o quadro, com dimensoes 800 x 400
 	createCanvas(800, 400);
+
+	// inicializando as posicoes
+	j1 = createVector(23, 99);
+	j2 = createVector(744, 129);
+	b = createVector(385, 119);
 }
 
 // chamada toda vez que o quadro for redesenhado
@@ -18,11 +26,11 @@ function draw() {
 
 	// bastao jogador 1
 	fill(255, 255, 255);
-	rect(23, 99, 32, 107); // posicao x, posicao y, largura, altura
+	rect(j1.x, j1.y, 32, 107); // posicao x, posicao y, largura, altura
 	// bastao jogador 2
 	fill(255, 255, 255);
-	rect(744, 129, 32, 107); // posicao x, posicao y, largura, altura
+	rect(j2.x, j2.y, 32, 107); // posicao x, posicao y, largura, altura
 	// bola
 	fill(113, 122, 236);
-	ellipse(385, 119, 35);
+	ellipse(b.x, b.y, 35);
 }
