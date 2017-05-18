@@ -4,11 +4,13 @@
  * 
  */
 
+console.log("Iniciando programa");
 // bastao dos jogadores 1 e 2 e a bola
 var j1, j2, b; 
 
 // chamada no inicio do programa
 function setup() {
+	console.log("Iniciando setup");
 	// cria o quadro, com dimensoes 800 x 400
 	createCanvas(800, 400);
 
@@ -16,6 +18,8 @@ function setup() {
 	j1 = createVector(23, 99);
 	j2 = createVector(744, 129);
 	b = createVector(385, 119);
+
+	console.log("Terminando setup");
 }
 
 // chamada toda vez que o quadro for redesenhado
@@ -33,4 +37,12 @@ function draw() {
 	// bola
 	fill(113, 122, 236);
 	ellipse(b.x, b.y, 35);
+}
+
+function mouseMoved() {
+	// console.log("mouse movido: " + mouseY);
+}
+
+function keyPressed() {
+	// console.log("tecla apertada: " + keyCode);
 }
