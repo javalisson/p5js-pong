@@ -13,7 +13,7 @@ function setup() {
 // chamada toda vez que o quadro for redesenhado
 // ou seja, a cada frame da animacao
 function draw() {
-	// pinta o fundo de preto
-	background(0, 0, 0);
+	// pinta o fundo de azul escuro
+	background(19, 29, 140);
 
 }
