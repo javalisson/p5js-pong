@@ -5,8 +5,12 @@
  */
 
 console.log("Iniciando programa");
+
 // bastao dos jogadores 1 e 2 e a bola
 var j1, j2, b; 
+
+var paraCima = false, 
+	paraBaixo = false;
 
 // chamada no inicio do programa
 function setup() {
@@ -28,6 +32,15 @@ function setup() {
 // chamada toda vez que o quadro for redesenhado
 // ou seja, a cada frame da animacao
 function draw() {
+	// atualiza a posicao do bastao
+	if (paraCima == true) {
+		j1.y = j1.y - 5;
+	}
+
+	if (paraBaixo == true) {
+		j1.y = j1.y + 5;
+	}
+
 	// pinta o fundo de azul escuro
 	background(19, 29, 140);
 
@@ -50,10 +63,21 @@ function mouseMoved() {
 function keyPressed() {
 	// console.log("tecla apertada: " + keyCode);
 	if (keyCode == UP_ARROW) {
-		j1.y = j1.y - 10;
+		paraCima = true;
 	}
 
 	if (keyCode == DOWN_ARROW) {
-		j1.y = j1.y + 10;
+		paraBaixo = true;
+	}
+}
+
+function keyReleased() {
+	// console.log("tecla solta: " + keyCode);
+	if (keyCode == UP_ARROW) {
+		paraCima = false;
+	}
+
+	if (keyCode == DOWN_ARROW) {
+		paraBaixo = false;
 	}
 }
