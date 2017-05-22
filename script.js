@@ -12,6 +12,9 @@ var j1, j2, b;
 var paraCima = false, 
 	paraBaixo = false;
 
+// vai mudar a posicao da bola a cada vez que desenhamos a tela
+var deslocamento;
+
 // chamada no inicio do programa
 function setup() {
 	console.log("Iniciando setup");
@@ -25,6 +28,9 @@ function setup() {
 	j1 = createVector(23, 99);
 	j2 = createVector(744, 129);
 	b = createVector(385, 119);
+
+	// inicializa o deslocamento
+	deslocamento = createVector(1, -1);
 
 	console.log("Terminando setup");
 }
@@ -40,6 +46,20 @@ function draw() {
 	if (paraBaixo == true) {
 		j1.y = j1.y + 5;
 	}
+
+	// verifica se muda de direcao
+	if (b.y <= 0 || b.y >= height) {
+		deslocamento.rotate(HALF_PI);
+	}
+	if (b.x >= width || b.x <= 0) {
+		deslocamento.rotate(HALF_PI);
+	}
+
+	// acelera
+	deslocamento.mult(1.0005);
+
+	// atualiza a posicao da bola
+	b.add(deslocamento);
 
 	// pinta o fundo de azul escuro
 	background(19, 29, 140);
