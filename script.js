@@ -47,19 +47,43 @@ function draw() {
 		j1.y = j1.y + 5;
 	}
 
+	// atualiza a posicao da bola
+	b.add(deslocamento);
+
+	if (b.y < 0) {
+		console.log("A bola saiu do quadro, para cima");
+	}
+
+	if (b.y > 400) {
+		console.log("A bola saiu do quadro, para baixo");
+	}
+
+	if (b.x < 0) {
+		console.log("A bola saiu do quadro, para esquerda");
+	}
+
+	if (b.x > 800) {
+		console.log("A bola saiu do quadro, para direita");
+	}
+
+	if (b.x > j1.x && b.x < j1.x + 32 && b.y > j1.y && b.y < j1.y + 107) {
+		console.log("A bola bateu no bastao j1");
+	}
+
+	if (b.x > j2.x && b.x < j2.x + 32 && b.y > j2.y && b.y < j2.y + 107) {
+		console.log("A bola bateu no bastao j2");
+	}
+
 	// verifica se muda de direcao
-	if (b.y <= 0 || b.y >= height) {
+	if (b.y < 0 || b.y > height) {
 		deslocamento.rotate(HALF_PI);
 	}
-	if (b.x >= width || b.x <= 0) {
+	if (b.x > width || b.x < 0) {
 		deslocamento.rotate(HALF_PI);
 	}
 
 	// acelera
-	deslocamento.mult(1.0005);
-
-	// atualiza a posicao da bola
-	b.add(deslocamento);
+	// deslocamento.mult(1.0005);
 
 	// pinta o fundo de azul escuro
 	background(19, 29, 140);
@@ -81,7 +105,7 @@ function mouseMoved() {
 }
 
 function keyPressed() {
-	// console.log("tecla apertada: " + keyCode);
+	console.log("tecla apertada: " + keyCode);
 	if (keyCode == UP_ARROW) {
 		paraCima = true;
 	}
@@ -92,7 +116,7 @@ function keyPressed() {
 }
 
 function keyReleased() {
-	// console.log("tecla solta: " + keyCode);
+	console.log("tecla solta: " + keyCode);
 	if (keyCode == UP_ARROW) {
 		paraCima = false;
 	}
